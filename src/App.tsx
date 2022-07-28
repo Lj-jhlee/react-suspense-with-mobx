@@ -1,24 +1,45 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import loadable from "@loadable/component";
+import React, { Suspense } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+const Home = React.lazy(() => import("././component/home"));
+const SuspenseOnly = React.lazy(() => import("./component/suspense-only"));
+const SuspenseWithMobx = React.lazy(
+  () => import("./component/suspense-with-mobx")
+);
+const NoSuspense = React.lazy(() => import("./component/no-suspense"));
+
+// const LoadableSuspenseOnly = loadable(
+//   () => import("./component/suspense-only")
+// );
+// const LoadableSuspenseWithMobx = loadable(
+//   () => import("./component/suspense-with-mobx")
+// );
+// const LoadableNoSuspense = loadable(() => import("./component/no-suspense"));
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {/* <BrowserRouter>
+        <Routes>
+          <Route index element={<Home />} />
+          <Route path="/only" element={<LoadableSuspenseOnly />} />
+          <Route path="/mobx" element={<LoadableSuspenseWithMobx />} />
+          <Route path="/no" element={<LoadableNoSuspense />} />
+        </Routes>
+      </BrowserRouter> */}
+
+      {/* suspense only에서 네트워크 요청이 굉장히 여러번 발생 */}
+      <Suspense fallback={<p>pending data fetching....</p>}>
+        <BrowserRouter>
+          <Routes>
+            <Route index element={<Home />} />
+            <Route path="/no" element={<NoSuspense />} />
+            <Route path="/only" element={<SuspenseOnly />} />
+            <Route path="/mobx" element={<SuspenseWithMobx />} />
+          </Routes>
+        </BrowserRouter>
+      </Suspense>
     </div>
   );
 }
