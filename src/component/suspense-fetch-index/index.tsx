@@ -5,12 +5,17 @@ import User from "./user";
 import { Link } from "react-router-dom";
 
 const SuspenseOnly = () => {
+  const resource = fetchData(1);
+
+  const user = resource.user.read();
+  const posts = resource.posts.read();
+
   return (
     <div>
-      <h1>SuspenseOnly</h1>
+      <h1>Suspense with Fetch on Index</h1>
       <Link to="/">HOME</Link>
       <Suspense fallback={<p>pending data fetching....</p>}>
-        <User resource={fetchData(1)} />
+        <User user={user} posts={posts} />
       </Suspense>
     </div>
   );

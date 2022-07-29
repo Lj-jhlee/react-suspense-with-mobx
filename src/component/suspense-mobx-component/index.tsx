@@ -6,17 +6,16 @@ import { Link } from "react-router-dom";
 const SuspenseWithMobx = () => {
   const { userStore, postStore } = useStores();
 
-  useEffect(
-    () => () => {
+  useEffect(() => {
+    return () => {
       userStore.clear();
       postStore.clear();
-    },
-    [userStore, postStore]
-  );
+    };
+  }, [userStore, postStore]);
 
   return (
     <div>
-      <h2>SuspenseWithMobx</h2>
+      <h2>Suspense with Mobx on Components</h2>
       <Link to="/">HOME</Link>
       <Suspense fallback={<p>pending data fetching....</p>}>
         <User />

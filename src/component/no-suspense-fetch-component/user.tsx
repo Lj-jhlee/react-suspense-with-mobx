@@ -1,28 +1,27 @@
 import { useState, useEffect } from "react";
 import Posts from "./posts";
 
-function User({ userId }: any) {
+function User() {
   const [loading, setLoading] = useState(true);
   const [user, setUser] = useState<any>({});
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
+    fetch(`https://jsonplaceholder.typicode.com/users/${1}`)
       .then((response) => response.json())
       .then((user) => {
-        setTimeout(() => {
-          setUser(user);
-          setLoading(false);
-        }, 3000);
+        setUser(user);
+        setLoading(false);
       });
-  }, [userId]);
+  }, []);
 
   if (loading) return <p>pending data fetching....</p>;
+
   return (
     <div>
       <p>
         Wrote by. {user.name}({user.email})
       </p>
-      <Posts userId={userId} />
+      <Posts />
     </div>
   );
 }

@@ -1,21 +1,20 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-function Posts({ userId }: any) {
+function Posts() {
   const [loading, setLoading] = useState(true);
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${userId}`)
+    fetch(`https://jsonplaceholder.typicode.com/posts?userId=${1}`)
       .then((response) => response.json())
       .then((posts) => {
-        setTimeout(() => {
-          setPosts(posts);
-          setLoading(false);
-        }, 3000);
+        setPosts(posts);
+        setLoading(false);
       });
-  }, [userId]);
+  }, []);
 
   if (loading) return <p>pending data fetching....</p>;
+
   return (
     <ul>
       {posts.map((post: any) => (
