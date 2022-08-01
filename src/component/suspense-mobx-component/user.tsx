@@ -1,24 +1,19 @@
-import React, { Suspense, useEffect } from "react";
+import React, { Suspense } from "react";
 import { observer } from "mobx-react-lite";
 import useStores from "../../hook/useStores";
 import Post from "./post";
 
-const User = () => {
-  const { userStore } = useStores();
-
-  useEffect(() => {
-    userStore.getUsers(1);
-  }, [userStore]);
-
-  if (userStore.state === "pending") return <p>pending data fetching....</p>;
+const User = ({ userResource }: any) => {
+  const user = userResource();
+  const { suspensePostsStore } = useStores();
 
   return (
     <div>
       <p>
-        Wrote by. {userStore.user.name}({userStore.user.email})
+        Wrote by. {user.name}({user.email})
       </p>
       <Suspense fallback={<p>pending data fetching....</p>}>
-        <Post />
+        <Post postsResource={suspensePostsStore.getPosts(1)} />
       </Suspense>
     </div>
   );

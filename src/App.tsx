@@ -24,6 +24,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 const Home = React.lazy(() => import("././component/home"));
 const LazyOrNot = React.lazy(() => import("././component/lazy-or-not"));
+const RaceCondition = React.lazy(() => import("././component/race-condition"));
 const NoSuspenseWithFetchIndex = React.lazy(
   () => import("./component/no-suspense-fetch-index")
 );
@@ -74,6 +75,7 @@ function App() {
           <Routes>
             <Route index element={<Home />} />
             <Route path="/lazy-or-not" element={<LazyOrNot />} />
+            <Route path="/race-condition" element={<RaceCondition />} />
 
             <Route
               path="/no-suspense-fetch-index"

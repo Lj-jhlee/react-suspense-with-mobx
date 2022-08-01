@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import useStores from "../../hook/useStores";
 import Posts from "./posts";
+import { observer } from "mobx-react-lite";
 
 function User() {
   const { userStore } = useStores();
@@ -21,4 +22,4 @@ function User() {
   );
 }
 
-export default User;
+export default observer(User);

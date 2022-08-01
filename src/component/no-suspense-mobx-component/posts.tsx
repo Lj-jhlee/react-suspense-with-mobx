@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { observer } from "mobx-react-lite";
 import useStores from "../../hook/useStores";
 
 function Posts() {
@@ -21,4 +22,4 @@ function Posts() {
   );
 }
 
-export default Posts;
+export default observer(Posts);

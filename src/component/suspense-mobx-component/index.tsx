@@ -4,21 +4,21 @@ import User from "./user";
 import { Link } from "react-router-dom";
 
 const SuspenseWithMobx = () => {
-  const { userStore, postStore } = useStores();
+  const { suspenseUserStore, suspensePostsStore } = useStores();
 
   useEffect(() => {
     return () => {
-      userStore.clear();
-      postStore.clear();
+      suspenseUserStore.clear();
+      suspensePostsStore.clear();
     };
-  }, [userStore, postStore]);
+  }, [suspenseUserStore, suspensePostsStore]);
 
   return (
     <div>
       <h2>Suspense with Mobx on Components</h2>
       <Link to="/">HOME</Link>
       <Suspense fallback={<p>pending data fetching....</p>}>
-        <User />
+        <User userResource={suspenseUserStore.getUsers(1)} />
       </Suspense>
     </div>
   );

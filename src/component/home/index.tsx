@@ -20,7 +20,19 @@ const Home = () => {
       <p>How To Use : Set fast or slow 3G on Network</p>
       <p>
         Additinal Compare - Lazy or Not :{" "}
-        <Link to="/lazy-or-not">See Lazy or Not</Link>
+        <Link to="/lazy-or-not">
+          <h2 style={{ display: "inline-block", margin: "0" }}>
+            See Lazy or Not
+          </h2>
+        </Link>
+      </p>
+      <p>
+        Additinal Compare - Race Conditions :{" "}
+        <Link to="/race-condition">
+          <h2 style={{ display: "inline-block", margin: "0" }}>
+            See Race Conditions
+          </h2>
+        </Link>
       </p>
       <p>
         Reference:
@@ -33,10 +45,16 @@ const Home = () => {
         </a>{" "}
       </p>
       <hr />
-      <div style={{ display: "flex" }}>
-        <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          marginBottom: "20px",
+        }}
+      >
+        <div style={{ width: "500px" }}>
           <Link to="/no-suspense-fetch-index">
-            No Suspense With Fetch and Index
+            <h2>No Suspense With Fetch and Index</h2>
           </Link>
           <ul>
             <li>No suspense</li>
@@ -48,10 +66,16 @@ const Home = () => {
       </div>
       <br />
       <br />
-      <div style={{ display: "flex" }}>
-        <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          marginBottom: "20px",
+        }}
+      >
+        <div style={{ width: "500px" }}>
           <Link to="/no-suspense-fetch-component">
-            No Suspense With Fetch and Component
+            <h2>No Suspense With Fetch and Component</h2>
           </Link>
           <ul>
             <li>No suspense</li>
@@ -63,45 +87,67 @@ const Home = () => {
       </div>
       <br />
       <br />
-      <div style={{ display: "flex" }}>
-        <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          marginBottom: "20px",
+        }}
+      >
+        <div style={{ width: "500px" }}>
           <Link to="/no-suspense-mobx-index">
-            No Suspense With Mobx and Index
+            <h2>No Suspense With Mobx and Index</h2>
           </Link>
           <ul>
             <li>No suspense</li>
             <li>Use Mobx</li>
             <li>Call apis on index.tsx</li>
-            <li style={{ color: "red" }}>Did not render data</li>
           </ul>
         </div>
         <img src={NoSuspenseMobxIndex} alt="no-suspense-mobx-index" />
       </div>
       <br />
       <br />
-      <div style={{ display: "flex" }}>
-        <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          marginBottom: "20px",
+        }}
+      >
+        <div style={{ width: "500px" }}>
           <Link to="/no-suspense-mobx-component">
-            No Suspense With Mobx and Component
+            <h2>No Suspense With Mobx and Component</h2>
           </Link>
           <ul>
             <li>No suspense</li>
             <li>Use Mobx</li>
             <li>Call apis on each components</li>
-            <li style={{ color: "red" }}>Did not render data</li>
+            <li style={{ color: "red" }}>
+              Unnecessary requests after the api request is finished
+            </li>
           </ul>
         </div>
         <img src={NoSuspenseMobxComponent} alt="no-suspense-mobx-component" />
       </div>
       <br />
       <br />
-      <div style={{ display: "flex" }}>
-        <div>
-          <Link to="/suspense-fetch-index">Suspense With Fetch and Index</Link>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          marginBottom: "20px",
+        }}
+      >
+        <div style={{ width: "500px" }}>
+          <Link to="/suspense-fetch-index">
+            <h2>Suspense With Fetch and Index</h2>
+          </Link>
           <ul>
             <li>Use suspense</li>
             <li>No Mobx</li>
             <li>Call apis on index.tsx</li>
+            <li style={{ color: "red" }}>Read Data on index.tsx</li>
             <li style={{ color: "red" }}>Infinitly, Call apis</li>
           </ul>
         </div>
@@ -109,38 +155,60 @@ const Home = () => {
       </div>
       <br />
       <br />
-      <div style={{ display: "flex" }}>
-        <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          marginBottom: "20px",
+        }}
+      >
+        <div style={{ width: "500px" }}>
           <Link to="/suspense-fetch-component">
-            Suspense With Fetch and Component
+            <h2>Suspense With Fetch and Component</h2>
           </Link>
           <ul>
             <li>Use suspense</li>
             <li>No Mobx</li>
-            <li>Call apis on each components</li>
+            <li style={{ color: "red" }}>Call apis on index.tsx</li>
+            <li style={{ color: "red" }}>Read Data each components</li>
           </ul>
         </div>
         <img src={SuspenseFetchComponent} alt="suspense-fetch-component" />
       </div>
       <br />
       <br />
-      <div style={{ display: "flex" }}>
-        <div>
-          <Link to="/suspense-mobx-index">Suspense With Mobx and Index</Link>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          marginBottom: "20px",
+        }}
+      >
+        <div style={{ width: "500px" }}>
+          <Link to="/suspense-mobx-index">
+            <h2>Suspense With Mobx and Index</h2>
+          </Link>
           <ul>
             <li>Use suspense</li>
             <li>Use Mobx</li>
             <li>Call apis on index.tsx</li>
+            <li style={{ color: "red" }}>Did not render data</li>
           </ul>
         </div>
         <img src={SuspenseMobxIndex} alt="suspense-mobx-index" />
       </div>
       <br />
       <br />
-      <div style={{ display: "flex" }}>
-        <div>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-evenly",
+          marginBottom: "20px",
+        }}
+      >
+        <div style={{ width: "500px" }}>
           <Link to="/suspense-mobx-component">
-            Suspense With Mobx and Component
+            <h2>Suspense With Mobx and Component</h2>
           </Link>
           <ul>
             <li>Use suspense</li>

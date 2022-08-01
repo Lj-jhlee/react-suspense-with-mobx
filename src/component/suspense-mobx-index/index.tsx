@@ -4,16 +4,16 @@ import User from "./user";
 import { Link } from "react-router-dom";
 
 const SuspenseWithMobx = () => {
-  const { userStore, postStore } = useStores();
+  const { suspenseUserStore, suspensePostsStore } = useStores();
 
   useEffect(() => {
-    userStore.getUsers(1);
-    postStore.getPosts(1);
+    suspenseUserStore.getUsers(1);
+    suspensePostsStore.getPosts(1);
     return () => {
-      userStore.clear();
-      postStore.clear();
+      suspenseUserStore.clear();
+      suspensePostsStore.clear();
     };
-  }, [userStore, postStore]);
+  }, [suspenseUserStore, suspensePostsStore]);
 
   return (
     <div>
