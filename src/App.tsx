@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // import LazyOrNot from "././component/lazy-or-not";
 
+// import RaceCondition from "././component/race-condition";
+
 // import NoSuspenseWithFetchIndex from "./component/no-suspense-fetch-index";
 
 // import NoSuspenseWithFetchComponent from "./component/no-suspense-fetch-component";
